@@ -1,0 +1,21 @@
+version: "3"
+services:
+  one:
+    build: .
+    command: mix phx.server
+    environment:
+      - HELLO_PORT=4000
+    networks:
+      - phoenix-net
+
+  two:
+    build: .
+    command: mix phx.server
+    environment:
+      - HELLO_PORT=4001
+    networks:
+      - phoenix-net
+
+networks:
+  phoenix-net:
+    driver: bridge
